@@ -1,38 +1,45 @@
 # Three Stage Time to Digital Converter Proposal
 
-**Team:** Daiyan and Elisa  
-**Target shuttle:** Tiny Tapeout GF26c  
-**Date:** October 1, 2026
-
 ## 1 Statement of purpose
 
 We propose to design a time-to-digital converter (TDC) that measures the interval between the rising edges of external START and STOP signals. Our target is approximately **200 ps resolution** over a measurement range extending to **5 µs**, with a 16-bit result read through an 8-bit multiplexed output bus.
 
 The design will combine three measurement scales: an 8-bit reference-clock counter, a medium tapped delay line built from PDK standard cells, and a fine Vernier delay line using custom delay cells. We will implement the control, encoding, arithmetic, and readout in Verilog, and characterize the timing-sensitive circuits through transistor-level and extracted-layout simulation. The baseline design will operate without a DLL. A dual delay-locked loop (DLL) is an optional extension if the baseline passes verification with sufficient time and area remaining.
 
-GF26c is the intended shuttle, using the **GlobalFoundries GF180MCU** process family. We will use its required PDK and cell library. Our initial area objective is one allocated tile, subject to an early floorplan and confirmation of the custom-macro submission flow. [1]
-
 ## 2 System diagram and operation
 
-//TODO
+![//TODO](images/system_diagram.svg)
 
 ### Coarse timing and asynchronous event capture
 
 The shared 8-bit counter runs continuously from the reference clock. Each endpoint captures a coarse timestamp and its position within the corresponding clock period. We will use a registered Gray-coded count or an equivalent coherent capture scheme, together with explicit coarse/fraction alignment. Gray coding alone does not resolve which clock cycle contains an event at the boundary.
 
-Let N be the difference between the corrected coarse timestamps. Each φ term is the elapsed time from that event's preceding reference edge. The interval is:
+Let N be the difference between the corrected coarse timestamps. Each phi term is the elapsed time from that event's preceding reference edge. The interval is:
 
 $$
 T = N T_{clk} + \phi_{STOP} - \phi_{START}
 $$
+![alt text](images/coarse.png)
 
 This endpoint subtraction accounts for the two asynchronous phases relative to the reference clock. Simply synchronizing both edges before starting and stopping a counter would discard their sub-clock timing. Synchronizers will be used for captured-data handshakes and control; the timing front end must preserve the original edges. [2]
 
+The goal of the medium and fine stages is to find the values of $\phi_{start}$ and $\phi_{stop}$ essentially
+
 ### Medium tapped delay line
 
-The medium stage divides a nominal reference period into 16 timing regions. Sampling its taps produces a thermometer pattern whose transition position is converted to a 4-bit medium code. Launch/reset logic must ensure a single usable transition per capture window, or explicitly account for launch polarity; an untreated periodic square wave must not be assumed to produce a simple thermometer pattern. We will instantiate supported PDK delay cells explicitly and use placement constraints to retain the intended chain. A medium interval may require several cells; it is not necessarily the delay of one library cell.
+The medium stage divides one reference clock period into 16 timing regions. A transition is launched through a delay chain, and the 16 tap outputs are sampled to determine how far the transition has propagated. These outputs form a thermometer code, which is then encoded into a 4-bit medium timing value.
 
-The exact cell count will follow characterization at the shuttle's voltage, loading, input slew, and process corners. Published PDK delay values are characterized operating points, not fixed delays that hold for every implementation. [3]
+The launch and reset logic must ensure that only one relevant transition is present in the delay line during each measurement. Feeding a continuous square wave directly into the chain could create multiple rising and falling transitions, which would prevent the taps from forming a clean thermometer code.
+
+The delay line will be built using supported PDK delay cells, with placement constraints used to keep the cells physically arranged as intended. Each medium timing region may require multiple physical delay cells rather than a single cell (depends on the delay time).
+
+The final number of delay cells will be determined through characterization under the expected supply voltage, loading, input slew, and process corners. The delay values published by the PDK are measured under specific conditions and should therefore be treated as estimates rather than fixed delays, so we would still need to run sims. [3]
+
+It would look something like this where START is the reference clock rising edge and STOP is a START/STOP signal (we would be taking snapshots of both then subtracting).
+
+![a](images/time_delay_line.png)
+
+Source: https://www.researchgate.net/figure/a-Delay-line-based-TDC-and-b-Vernier-TDC_fig1_325577699
 
 ### Residue generation and fine Vernier conversion
 
