@@ -1,9 +1,12 @@
 <mxfile host="65bd71144e">
     <diagram id="8SDsB_njlHPkaCZNd5JP" name="Page-1">
-        <mxGraphModel dx="791" dy="772" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="700" math="0" shadow="0">
+        <mxGraphModel dx="584" dy="570" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="700" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
+                <mxCell id="zQJ5kVh8qYKBUc4G0D90-26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+                    <mxGeometry height="60" width="450" x="280" y="430" as="geometry"/>
+                </mxCell>
                 <mxCell id="i5x1U3D-CBK5p51XTE1D-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Coarse Counter&lt;div&gt;(8 Bit Counter)&lt;/div&gt;" vertex="1">
                     <mxGeometry height="60" width="120" x="280" y="260" as="geometry"/>
                 </mxCell>
@@ -96,6 +99,9 @@
                 </mxCell>
                 <mxCell id="zQJ5kVh8qYKBUc4G0D90-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="M[3:0]" vertex="1">
                     <mxGeometry height="30" width="60" x="650" y="430" as="geometry"/>
+                </mxCell>
+                <mxCell id="zQJ5kVh8qYKBUc4G0D90-27" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Register (Stores START and STOP time stamp)" vertex="1">
+                    <mxGeometry height="30" width="300" x="360" y="460" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
