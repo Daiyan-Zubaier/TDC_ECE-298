@@ -1,0 +1,24 @@
+v {xschem version=3.4.4 file_version=1.2
+}
+G {}
+K {type=primitive
+format="@name @@D @@CLK @@Q VDD VDD 0 0 @model"
+template="name=X1 model=gf180mcu_fd_sc_mcu7t5v0__dffq_1"}
+V {}
+S {}
+E {}
+L 4 -70 -50 -70 50 {}
+L 4 -90 -40 -70 -40 {}
+L 4 -90 0 -70 0 {}
+L 4 -70 -50 70 -50 {}
+L 4 70 -50 70 50 {}
+L 4 -70 50 70 50 {}
+L 7 70 -40 90 -40 {}
+B 5 -92.5 -42.5 -87.5 -37.5 {name=CLK dir=in}
+B 5 87.5 -42.5 92.5 -37.5 {name=Q dir=inout}
+B 5 -92.5 -2.5 -87.5 2.5 {name=D dir=out}
+T {@symname} -41 -16 0 0 0.3 0.3 {}
+T {@name} 35 -72 0 0 0.2 0.2 {}
+T {CLK} -65 -44 0 0 0.2 0.2 {}
+T {Q} 65 -44 0 1 0.2 0.2 {}
+T {D} -65 4 2 1 0.2 0.2 {}
