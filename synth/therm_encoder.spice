@@ -1,0 +1,112 @@
+* therm_encoder: generated from therm_encoder_syn.v by v2spice.py
+* Pin order: therm_0 therm_1 therm_2 therm_3 therm_4 therm_5 therm_6 therm_7 therm_8 therm_9 therm_10 therm_11 therm_12 therm_13 therm_14 therm_15 code_0 code_1 code_2 code_3 overflow bubble VDD VSS
+.subckt therm_encoder therm_0 therm_1 therm_2 therm_3 therm_4 therm_5 therm_6 therm_7 therm_8 therm_9 therm_10 therm_11 therm_12 therm_13 therm_14 therm_15 code_0 code_1 code_2 code_3 overflow bubble VDD VSS
+X_102_ therm_1 _028_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+X_103_ therm_10 _029_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+X_104_ therm_11 _030_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+X_105_ therm_14 _031_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+X_106_ therm_0 therm_1 _032_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and2_1
+X_107_ therm_0 therm_1 _033_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_108_ therm_2 therm_3 _034_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_109_ _033_ _034_ _035_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor2_1
+X_110_ therm_6 therm_7 _036_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_111_ therm_4 therm_5 _037_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_112_ therm_0 _028_ _038_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor2_1
+X_113_ therm_0 therm_1 _039_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor2_1
+X_114_ therm_0 therm_1 therm_2 _040_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor3_1
+X_115_ therm_3 _040_ _041_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_116_ therm_3 _040_ _042_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor2_1
+X_117_ therm_4 _042_ _043_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and2_1
+X_118_ therm_4 _042_ _044_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_119_ therm_3 therm_4 _040_ _045_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor3_1
+X_120_ therm_5 _045_ _046_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and2_1
+X_121_ therm_5 _045_ _047_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_122_ therm_5 _045_ _048_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor2_1
+X_123_ therm_6 _048_ _049_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and2_1
+X_124_ therm_6 _048_ _050_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_125_ therm_5 therm_6 _045_ _051_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor3_1
+X_126_ therm_7 _051_ _052_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and2_1
+X_127_ therm_7 _051_ _053_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_128_ therm_2 _039_ _032_ _054_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__aoi21_1
+X_129_ _041_ _054_ _035_ _055_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__aoi21_1
+X_130_ _044_ _047_ _054_ _041_ _035_ _056_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__aoi221_1
+X_131_ _043_ _046_ _055_ _057_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__oai21_1
+X_132_ _043_ _046_ _055_ _058_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_133_ _043_ _046_ _055_ _059_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__or3_1
+X_134_ _033_ _034_ _036_ _037_ _060_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__or4_1
+X_135_ therm_10 therm_11 therm_14 therm_15 _061_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+X_136_ therm_8 therm_9 therm_12 therm_13 _062_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+X_137_ _060_ _061_ _062_ overflow VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_138_ _029_ therm_8 therm_9 _063_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__mux2_1
+X_139_ therm_5 therm_6 _037_ _064_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__oai21_1
+X_140_ _031_ therm_12 therm_13 _065_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__mux2_1
+X_141_ therm_7 therm_8 _036_ _066_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__oai21_1
+X_142_ _063_ _064_ _065_ _066_ _067_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and4_1
+X_143_ _030_ therm_12 _031_ therm_15 _038_ _068_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__aoi221_1
+X_144_ _028_ therm_2 _029_ therm_11 _069_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__aoi22_1
+X_145_ therm_3 therm_4 _034_ _070_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__oai21_1
+X_146_ _067_ _068_ _069_ _070_ bubble VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand4_1
+X_147_ therm_7 _051_ _071_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor2_1
+X_148_ therm_8 _071_ _072_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_149_ therm_7 therm_8 _051_ _073_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor3_1
+X_150_ therm_9 _073_ _074_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and2_1
+X_151_ therm_9 _073_ _075_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_152_ therm_9 _073_ _076_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor2_1
+X_153_ therm_10 _076_ _077_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and2_1
+X_154_ therm_10 _076_ _078_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_155_ therm_9 therm_10 _073_ _079_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor3_1
+X_156_ therm_11 _079_ _080_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and2_1
+X_157_ therm_11 _079_ _081_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_158_ therm_11 _079_ _082_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__or2_1
+X_159_ therm_12 _081_ _082_ _083_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand3_1
+X_160_ therm_11 therm_12 _079_ _084_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor3_1
+X_161_ therm_13 _084_ _085_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_162_ therm_13 _084_ _086_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor2_1
+X_163_ therm_14 _086_ _087_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and2_1
+X_164_ therm_14 _086_ _088_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_165_ therm_14 _086_ _089_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor2_1
+X_166_ therm_15 _089_ _090_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_167_ therm_15 _089_ code_0 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor2_1
+X_168_ _088_ _090_ _091_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_169_ _083_ _085_ _092_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_170_ _057_ _059_ _049_ _052_ _093_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__aoi211_1
+X_171_ _056_ _058_ _050_ _053_ _094_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__oai211_1
+X_172_ _050_ _053_ _056_ _058_ _095_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__aoi211_1
+X_173_ _049_ _052_ _057_ _059_ _096_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__oai211_1
+X_174_ _074_ _094_ _096_ _097_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand3_1
+X_175_ _072_ _093_ _095_ _098_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_176_ therm_8 _071_ _094_ _096_ _074_ _099_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__aoi221_1
+X_177_ _072_ _075_ _093_ _095_ _100_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__aoi211_1
+X_178_ _099_ _100_ _101_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor2_1
+X_179_ _078_ _081_ _000_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_180_ _078_ _099_ _100_ _001_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_181_ _081_ _099_ _100_ _002_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_182_ _077_ _080_ _099_ _100_ _003_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__or4_1
+X_183_ _077_ _080_ _099_ _100_ _004_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__oai22_1
+X_184_ _092_ _101_ _000_ _005_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor3_1
+X_185_ _091_ _005_ code_1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor2_1
+X_186_ therm_15 _089_ _005_ _006_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand3_1
+X_187_ _003_ _004_ _085_ _007_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__aoi21_1
+X_188_ _003_ _004_ _083_ _008_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__aoi21_1
+X_189_ _035_ _056_ _095_ _060_ _009_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__oai31_1
+X_190_ _072_ _093_ _095_ _009_ _010_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor4_1
+X_191_ _098_ _009_ _011_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor2_1
+X_192_ _097_ _098_ _009_ _012_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor3_1
+X_193_ _001_ _012_ _013_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__or2_1
+X_194_ _001_ _012_ _014_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and2_1
+X_195_ _001_ _002_ _012_ _015_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor3_1
+X_196_ _008_ _015_ _016_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_197_ _008_ _015_ _017_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__or2_1
+X_198_ _007_ _016_ _017_ _018_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and3_1
+X_199_ _007_ _008_ _015_ _019_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xor3_1
+X_200_ _087_ _005_ _019_ _020_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and3_1
+X_201_ _087_ _005_ _019_ _021_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__aoi21_1
+X_202_ _020_ _021_ _006_ _022_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__oai21_1
+X_203_ _006_ _020_ _021_ _023_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__or3_1
+X_204_ _022_ _023_ code_2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and2_1
+X_205_ _097_ _011_ _060_ _024_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__oai21_1
+X_206_ _002_ _013_ _014_ _010_ _025_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__aoi211_1
+X_207_ _016_ _025_ _026_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nand2_1
+X_208_ _018_ _020_ _024_ _026_ _027_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__or4_1
+X_209_ _023_ _027_ code_3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__xnor2_1
+.ends therm_encoder

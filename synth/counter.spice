@@ -1,0 +1,32 @@
+* counter: generated from counter_syn.v by v2spice.py
+* Pin order: clk rst_n count_0 count_1 count_2 count_3 count_4 count_5 count_6 count_7 VDD VSS
+.subckt counter clk rst_n count_0 count_1 count_2 count_3 count_4 count_5 count_6 count_7 VDD VSS
+X_20_ rst_n _08_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__clkinv_1
+X_21_ _08_ count_0 _00_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor2_1
+X_22_ count_0 count_1 rst_n _09_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__oai21_1
+X_23_ count_0 count_1 _09_ _01_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__aoi21_1
+X_24_ count_0 count_1 count_2 _10_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and3_1
+X_25_ count_0 count_1 count_2 _11_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__aoi21_1
+X_26_ _08_ _10_ _11_ _02_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_27_ count_0 count_1 count_2 count_3 _12_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and4_1
+X_28_ count_3 _10_ rst_n _13_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__oai21_1
+X_29_ _12_ _13_ _03_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor2_1
+X_30_ count_4 _12_ rst_n _14_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__oai21_1
+X_31_ count_4 _12_ _14_ _04_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__aoi21_1
+X_32_ count_4 count_5 _12_ _15_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and3_1
+X_33_ count_4 _12_ count_5 _16_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__aoi21_1
+X_34_ _08_ _15_ _16_ _05_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_35_ count_6 _15_ rst_n _17_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__oai21_1
+X_36_ count_6 _15_ _17_ _06_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__aoi21_1
+X_37_ count_6 count_7 _15_ _18_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__and3_1
+X_38_ count_6 _15_ count_7 _19_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__aoi21_1
+X_39_ _08_ _18_ _19_ _07_ VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__nor3_1
+X_40_ _00_ clk count_0 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X_41_ _01_ clk count_1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X_42_ _02_ clk count_2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X_43_ _03_ clk count_3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X_44_ _04_ clk count_4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X_45_ _05_ clk count_5 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X_46_ _06_ clk count_6 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X_47_ _07_ clk count_7 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+.ends counter
