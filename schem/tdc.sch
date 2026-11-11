@@ -62,8 +62,8 @@ ypos2=3.6
 divy=4
 subdivy=1
 unity=1
-x1=0
-x2=4e-08
+x1=4e-09
+x2=1.2e-08
 divx=4
 subdivx=5
 xlabmag=1
@@ -72,12 +72,20 @@ dataset=-1
 unitx=1
 logx=0
 logy=0
-color="4 7 6 9 10"
-node="fd[8]
+color="4 7 6 9 10 11 12 13 14 15 16"
+node="fstart
+fstop
+fd[8]
+fd[7]
 fd[6]
+fd[5]
 fd[4]
+fd[3]
 fd[2]
-fd[0]"}
+fd[1]
+fd[0]"
+digital=1
+rainbow=1}
 B 2 1460 110 3410 520 {flags=graph
 y1=0
 y2=3.6
@@ -97,10 +105,11 @@ unitx=1
 logx=0
 logy=0
 color="4 7 6 9 10"
-node="mcode[0:3];mcode[0],mcode[1],mcode[2],mcode[3]
-fcode[0:3];fcode[0],fcode[1],fcode[2],fcode[3]
+node="mcode[3:0];mcode[3],mcode[2],mcode[1],mcode[0]
+fcode[3:0];fcode[3],fcode[2],fcode[1],fcode[0]
 m_overflow
 m_bubble
+f_overflow
 f_bubble"
 digital=1
 rainbow=1
@@ -148,8 +157,12 @@ T {05 / IN-SCHEMATIC WAVEFORMS} 1418 -1428 0 0 0.38 0.38 {}
 T {After running, load TDC.raw (Waves -> Tran) to populate these saved graphs.} 1418 -1385 0 0 0.2 0.2 {}
 T {Input edges  |  mstop - mstart = 7 ns   /   fstop - fstart = 0.4 ns (ideal)} 1455 -1350 0 0 0.25 0.25 {}
 T {Medium progression  |  representative tap voltages} 1455 -870 0 0 0.25 0.25 {}
-T {Vernier progression  |  representative captured tap bits} 1455 -405 0 0 0.25 0.25 {}
+T {Vernier captures  |  START/STOP + all nine taps, zoomed 4-12 ns} 1455 -405 0 0 0.25 0.25 {}
 T {Encoded outputs + flags  |  digital view (edit signal list to add other buses)} 1455 40 0 0 0.25 0.25 {}
+T {Flat output bits after capture are expected: these taps are latched DFF values.} 1465 563 0 0 0.2 0.2 {}
+T {Check the before/after fine tap measurements in TDC_measurements.txt.} 1465 593 0 0 0.2 0.2 {}
+T {WARNING: Existing fine encoder bubble detection may use the opposite thermometer polarity.} 1465 760 0 0 0.2 0.2 {}
+T {Next: sweep VFSTOP rise from 5.2 to 5.8 ns and compare all nine final tap bits.} 1465 803 0 0 0.2 0.2 {}
 T {Xschem: select graph -> Alt-G on schematic signal; A/B keys: time cursors.} 1465 620 0 0 0.24 0.24 {}
 T {Waveforms update when the latest raw data file is reloaded.} 1465 662 0 0 0.23 0.23 {}
 T {Spice .meas numbers are written to TDC_measurements.txt and simulation console.} 1465 720 0 0 0.23 0.23 {}
@@ -304,9 +317,48 @@ meas tran fine_interval TRIG v(fstart) VAL=1.65 RISE=1 TARG v(fstop) VAL=1.65 RI
 meas tran clk_period TRIG v(clk) VAL=1.65 RISE=1 TARG v(clk) VAL=1.65 RISE=2
 meas tran medium_code0_at_20n FIND v(mcode[0]) AT=20n
 meas tran fine_code0_at_20n FIND v(fcode[0]) AT=20n
+* Diagnostic snapshots before launch and after latch settling
+meas tran fd8_pre_4n FIND v(fd[8]) AT=4n
+meas tran fd7_pre_4n FIND v(fd[7]) AT=4n
+meas tran fd6_pre_4n FIND v(fd[6]) AT=4n
+meas tran fd5_pre_4n FIND v(fd[5]) AT=4n
+meas tran fd4_pre_4n FIND v(fd[4]) AT=4n
+meas tran fd3_pre_4n FIND v(fd[3]) AT=4n
+meas tran fd2_pre_4n FIND v(fd[2]) AT=4n
+meas tran fd1_pre_4n FIND v(fd[1]) AT=4n
+meas tran fd0_pre_4n FIND v(fd[0]) AT=4n
+meas tran fd8_post_20n FIND v(fd[8]) AT=20n
+meas tran fd7_post_20n FIND v(fd[7]) AT=20n
+meas tran fd6_post_20n FIND v(fd[6]) AT=20n
+meas tran fd5_post_20n FIND v(fd[5]) AT=20n
+meas tran fd4_post_20n FIND v(fd[4]) AT=20n
+meas tran fd3_post_20n FIND v(fd[3]) AT=20n
+meas tran fd2_post_20n FIND v(fd[2]) AT=20n
+meas tran fd1_post_20n FIND v(fd[1]) AT=20n
+meas tran fd0_post_20n FIND v(fd[0]) AT=20n
+meas tran fine_code1_at_20n FIND v(fcode[1]) AT=20n
+meas tran fine_code2_at_20n FIND v(fcode[2]) AT=20n
+meas tran fine_code3_at_20n FIND v(fcode[3]) AT=20n
+meas tran medium_code0_at_20n FIND v(mcode[0]) AT=20n
+meas tran medium_code1_at_20n FIND v(mcode[1]) AT=20n
+meas tran medium_code2_at_20n FIND v(mcode[2]) AT=20n
+meas tran medium_code3_at_20n FIND v(mcode[3]) AT=20n
+meas tran f_bubble_at_20n FIND v(f_bubble) AT=20n
+meas tran f_overflow_at_20n FIND v(f_overflow) AT=20n
+meas tran m_bubble_at_20n FIND v(m_bubble) AT=20n
+meas tran m_overflow_at_20n FIND v(m_overflow) AT=20n
 echo STAGE INTEGRATION TEST / not a calibrated TDC result > TDC_measurements.txt
 print medium_interval fine_interval clk_period >> TDC_measurements.txt
 print medium_code0_at_20n fine_code0_at_20n >> TDC_measurements.txt
+echo --- Fine taps BEFORE launch at 4 ns (V) --- >> TDC_measurements.txt
+print fd8_pre_4n fd7_pre_4n fd6_pre_4n fd5_pre_4n fd4_pre_4n fd3_pre_4n fd2_pre_4n fd1_pre_4n fd0_pre_4n >> TDC_measurements.txt
+echo --- Fine taps AFTER settling at 20 ns (V) --- >> TDC_measurements.txt
+print fd8_post_20n fd7_post_20n fd6_post_20n fd5_post_20n fd4_post_20n fd3_post_20n fd2_post_20n fd1_post_20n fd0_post_20n >> TDC_measurements.txt
+echo --- Encoder output bits at 20 ns, HIGH if above 1.65 V --- >> TDC_measurements.txt
+print fine_code0_at_20n fine_code1_at_20n fine_code2_at_20n fine_code3_at_20n >> TDC_measurements.txt
+print medium_code0_at_20n medium_code1_at_20n medium_code2_at_20n medium_code3_at_20n >> TDC_measurements.txt
+echo --- Status flags at 20 ns --- >> TDC_measurements.txt
+print f_bubble_at_20n f_overflow_at_20n m_bubble_at_20n m_overflow_at_20n >> TDC_measurements.txt
 set wr_singlescale
 set wr_vecnames
 wrdata TDC_trace.txt v(mstart) v(mstop) v(fstart) v(fstop)
