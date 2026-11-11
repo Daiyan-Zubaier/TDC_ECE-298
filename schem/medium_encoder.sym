@@ -1,11 +1,11 @@
 v {xschem version=3.4.4 file_version=1.2
 }
 G {}
-K {}
-V {}
-S {type=primitive
+K {type=primitive
 format="@name @pinlist VDD VSS therm_encoder"
 template="name=X1"}
+V {}
+S {}
 E {}
 L 4 -128 20 -110 20 {}
 L 4 80 20 98 20 {}
