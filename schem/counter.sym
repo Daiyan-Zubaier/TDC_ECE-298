@@ -2,22 +2,21 @@ v {xschem version=3.4.4 file_version=1.2
 }
 G {}
 K {type=primitive
-format="@name @pinlist VDD VSS counter"
+format="@name @@clk @@rst_n @@COUNT[0:7] VDD VSS counter"
 template="name=X1"}
 V {}
-S {type=primitive
-format="@name @@clk @@rst_n @@count_0 @@count_1 @@count_2 @@count_3 @@count_4 @@count_5 @@count_6 @@count_7 VDD VSS counter"
-template="name=X1"}
+S {}
 E {}
-L 4 0 135 27 135 {}
-L 4 -140 20 -100 20 {}
-L 4 -140 50 -100 50 {}
 B 4 -100 0 0 150 {fill=false}
+L 4 -127 20 -100 20 {}
+L 4 -127 50 -100 50 {}
+L 4 0 135 27 135 {}
+B 5 -129.5 17.5 -124.5 22.5 {name=rst_n dir=in}
+B 5 -129.5 47.5 -124.5 52.5 {name=clk dir=in}
 B 5 24.5 132.5 29.5 137.5 {name=COUNT[0:7] dir=out}
-B 5 -140.5 17.5 -135.5 22.5 {name=COUNT[0:7] dir=out}
-B 5 -140.5 47.5 -135.5 52.5 {name=COUNT[0:7] dir=out}
-T {8-Bit
-Counter} -54 70 0 0 0.3 0.3 {hcenter=true}
-T {COUNT[0:7]} -67 127 0 0 0.2 0.2 {}
-T {RST_N} -63 33 2 0 0.2 0.2 {}
-T {CLK} -73 63 2 0 0.2 0.2 {}
+T {8-bit counter} -88 80 0 0 0.2 0.2 {}
+T {@name} -83 111 0 0 0.2 0.2 {}
+T {RST_N} -97 13 0 0 0.2 0.2 {}
+T {CLK} -97 43 0 0 0.2 0.2 {}
+T {COUNT[0:7]} -85 127 0 0 0.2 0.2 {}
+

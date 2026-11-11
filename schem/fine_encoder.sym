@@ -2,23 +2,24 @@ v {xschem version=3.4.4 file_version=1.2
 }
 G {}
 K {type=primitive
-format="@name @pinlist VDD VSS therm_encoder"
+format="@name @@D[8:0] VSS VSS VSS VSS VSS VSS VSS @@CODE[0:3] @@OVERFLOW @@BUBBLE VDD VSS therm_encoder"
 template="name=X1"}
 V {}
 S {}
 E {}
-L 4 -128 -20 -110 -20 {}
-L 4 80 -20 98 -20 {}
-L 4 80 5 98 5 {}
-L 4 80 30 98 30 {}
 B 4 -110 -40 80 50 {fill=false}
+L 4 -128 -20 -110 -20 {}
 B 5 -130.5 -22.5 -125.5 -17.5 {name=D[8:0] dir=in}
+L 4 80 -20 98 -20 {}
 B 5 95.5 -22.5 100.5 -17.5 {name=CODE[0:3] dir=out}
+L 4 80 5 98 5 {}
 B 5 95.5 2.5 100.5 7.5 {name=OVERFLOW dir=out}
+L 4 80 30 98 30 {}
 B 5 95.5 27.5 100.5 32.5 {name=BUBBLE dir=out}
-T {Fine
-Encoder} -64 0 0 0 0.3 0.3 {}
+T {"FINE" encoder} -70 -6 0 0 0.2 0.2 {}
 T {D[8:0]} -102 -28 0 0 0.2 0.2 {}
-T {CODE[0:3]} 19 -28 0 0 0.2 0.2 {}
-T {OVERFLOW} 15 -3 0 0 0.2 0.2 {}
-T {BUBBLE} 28 22 0 0 0.2 0.2 {}
+T {CODE[0:3]} 2 -28 0 0 0.2 0.2 {}
+T {OVERFLOW} 2 -3 0 0 0.2 0.2 {}
+T {BUBBLE} 2 22 0 0 0.2 0.2 {}
+T {@name} -75 43 0 0 0.2 0.2 {}
+
