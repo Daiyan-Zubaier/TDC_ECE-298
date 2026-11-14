@@ -298,7 +298,8 @@ C {code_shown.sym} -895 1390 0 0 {name=MODELS only_toplevel=true value="* Hierar
 .include /usr/local/share/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/spice/gf180mcu_fd_sc_mcu7t5v0.spice
 * These paths are relative to schem/simulation/
 .include /home/dmzubaie/Documents/TDC_ECE-298/synth/counter.spice
-.include /home/dmzubaie/Documents/TDC_ECE-298/synth/therm_encoder.spice"}
+.include /home/dmzubaie/Documents/TDC_ECE-298/synth/therm_encoder.spice
+.include /home/dmzubaie/Documents/TDC_ECE-298/synth/fine_encoder_debug.spice"}
 C {code_shown.sym} 1370 1390 0 0 {name=SIM only_toplevel=true value="* First-pass functional transient; reduce maxstep for fine characterization.
 .temp 25
 .tran 5p 40n 0 5p
@@ -347,6 +348,19 @@ meas tran f_bubble_at_20n FIND v(f_bubble) AT=20n
 meas tran f_overflow_at_20n FIND v(f_overflow) AT=20n
 meas tran m_bubble_at_20n FIND v(m_bubble) AT=20n
 meas tran m_overflow_at_20n FIND v(m_overflow) AT=20n
+meas tran fd8_at_30n FIND v(fd[8]) AT=30n
+meas tran fd7_at_30n FIND v(fd[7]) AT=30n
+meas tran fd6_at_30n FIND v(fd[6]) AT=30n
+meas tran fd5_at_30n FIND v(fd[5]) AT=30n
+meas tran fd4_at_30n FIND v(fd[4]) AT=30n
+meas tran fd3_at_30n FIND v(fd[3]) AT=30n
+meas tran fd2_at_30n FIND v(fd[2]) AT=30n
+meas tran fd1_at_30n FIND v(fd[1]) AT=30n
+meas tran fd0_at_30n FIND v(fd[0]) AT=30n
+meas tran fcode0_at_30n FIND v(fcode[0]) AT=30n
+meas tran fcode1_at_30n FIND v(fcode[1]) AT=30n
+meas tran fcode2_at_30n FIND v(fcode[2]) AT=30n
+meas tran fcode3_at_30n FIND v(fcode[3]) AT=30n
 echo STAGE INTEGRATION TEST / not a calibrated TDC result > TDC_measurements.txt
 print medium_interval fine_interval clk_period >> TDC_measurements.txt
 print medium_code0_at_20n fine_code0_at_20n >> TDC_measurements.txt
@@ -359,6 +373,10 @@ print fine_code0_at_20n fine_code1_at_20n fine_code2_at_20n fine_code3_at_20n >>
 print medium_code0_at_20n medium_code1_at_20n medium_code2_at_20n medium_code3_at_20n >> TDC_measurements.txt
 echo --- Status flags at 20 ns --- >> TDC_measurements.txt
 print f_bubble_at_20n f_overflow_at_20n m_bubble_at_20n m_overflow_at_20n >> TDC_measurements.txt
+echo --- Fine taps at 30 ns --- >> TDC_measurements.txt
+print fd8_at_30n fd7_at_30n fd6_at_30n fd5_at_30n fd4_at_30n fd3_at_30n fd2_at_30n fd1_at_30n fd0_at_30n >> TDC_measurements.txt
+echo --- Fine code bits at 30 ns --- >> TDC_measurements.txt
+print fcode0_at_30n fcode1_at_30n fcode2_at_30n fcode3_at_30n >> TDC_measurements.txt
 set wr_singlescale
 set wr_vecnames
 wrdata TDC_trace.txt v(mstart) v(mstop) v(fstart) v(fstop)
