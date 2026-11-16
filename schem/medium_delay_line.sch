@@ -90,67 +90,67 @@ lab=VSTOP}
 N 1960 -40 1960 10 {
 lab=VSTOP}
 N 2150 140 2180 140 {
-lab=#net8}
+lab=#net9}
 N 2180 50 2180 140 {
-lab=#net8}
+lab=#net9}
 N 2180 50 2210 50 {
-lab=#net8}
+lab=#net9}
 N 2450 140 2480 140 {
-lab=#net9}
+lab=#net10}
 N 2480 50 2480 140 {
-lab=#net9}
+lab=#net10}
 N 2480 50 2510 50 {
-lab=#net9}
+lab=#net10}
 N 2180 140 2280 140 {
-lab=#net8}
-N 2750 140 2780 140 {
-lab=#net10}
-N 2780 50 2780 140 {
-lab=#net10}
-N 2780 50 2810 50 {
-lab=#net10}
-N 3050 140 3080 140 {
-lab=#net11}
-N 3080 50 3080 140 {
-lab=#net11}
-N 3080 50 3110 50 {
-lab=#net11}
-N 2780 140 2880 140 {
-lab=#net10}
-N 3360 140 3390 140 {
-lab=#net12}
-N 3390 50 3390 140 {
-lab=#net12}
-N 3390 50 3420 50 {
-lab=#net12}
-N 3660 140 3690 140 {
-lab=#net13}
-N 3690 50 3690 140 {
-lab=#net13}
-N 3690 50 3720 50 {
-lab=#net13}
-N 3390 140 3490 140 {
-lab=#net12}
-N 3960 140 3990 140 {
-lab=#net14}
-N 3990 50 3990 140 {
-lab=#net14}
-N 3990 50 4020 50 {
-lab=#net14}
-N 4260 140 4290 140 {
-lab=#net15}
-N 4290 50 4290 140 {
-lab=#net15}
-N 4290 50 4320 50 {
-lab=#net15}
-N 3990 140 4090 140 {
-lab=#net14}
-N 2480 140 2580 140 {
 lab=#net9}
-N 3080 140 3190 140 {
+N 2750 140 2780 140 {
 lab=#net11}
-N 3690 140 3790 140 {
+N 2780 50 2780 140 {
+lab=#net11}
+N 2780 50 2810 50 {
+lab=#net11}
+N 3050 140 3080 140 {
+lab=#net12}
+N 3080 50 3080 140 {
+lab=#net12}
+N 3080 50 3110 50 {
+lab=#net12}
+N 2780 140 2880 140 {
+lab=#net11}
+N 3360 140 3390 140 {
 lab=#net13}
+N 3390 50 3390 140 {
+lab=#net13}
+N 3390 50 3420 50 {
+lab=#net13}
+N 3660 140 3690 140 {
+lab=#net14}
+N 3690 50 3690 140 {
+lab=#net14}
+N 3690 50 3720 50 {
+lab=#net14}
+N 3390 140 3490 140 {
+lab=#net13}
+N 3960 140 3990 140 {
+lab=#net15}
+N 3990 50 3990 140 {
+lab=#net15}
+N 3990 50 4020 50 {
+lab=#net15}
+N 4260 140 4290 140 {
+lab=#net16}
+N 4290 50 4290 140 {
+lab=#net16}
+N 4290 50 4320 50 {
+lab=#net16}
+N 3990 140 4090 140 {
+lab=#net15}
+N 2480 140 2580 140 {
+lab=#net10}
+N 3080 140 3190 140 {
+lab=#net12}
+N 3690 140 3790 140 {
+lab=#net14}
 N 2210 -40 2210 10 {
 lab=VSTOP}
 N 2210 -40 4320 -40 {
@@ -171,38 +171,37 @@ N 4320 -40 4320 10 {
 lab=VSTOP}
 N 1960 -40 2210 -40 {
 lab=VSTOP}
-N 1930 140 2150 140 {
-lab=#net8}
-C {pdk_dff.sym} -60 50 0 0 {name=X1 model=gf180mcu_fd_sc_mcu7t5v0__dffq_4}
+N 1930 140 1980 140 {}
+C {pdk_dff.sym} -60 50 0 0 {name=X1 model=gf180mcu_fd_sc_mcu7t5v0__dffq_1}
 C {pdk_delay_cell.sym} -230 180 0 0 {name=X2 model=gf180mcu_fd_sc_mcu7t5v0__dlyc_1}
-C {pdk_dff.sym} 240 50 0 0 {name=X3 model=gf180mcu_fd_sc_mcu7t5v0__dffq_4}
+C {pdk_dff.sym} 240 50 0 0 {name=X3 model=gf180mcu_fd_sc_mcu7t5v0__dffq_1}
 C {pdk_delay_cell.sym} 70 180 0 0 {name=X4 model=gf180mcu_fd_sc_mcu7t5v0__dlyc_1}
-C {pdk_dff.sym} 540 50 0 0 {name=X5 model=gf180mcu_fd_sc_mcu7t5v0__dffq_4}
+C {pdk_dff.sym} 540 50 0 0 {name=X5 model=gf180mcu_fd_sc_mcu7t5v0__dffq_1}
 C {pdk_delay_cell.sym} 370 180 0 0 {name=X6 model=gf180mcu_fd_sc_mcu7t5v0__dlyc_1}
-C {pdk_dff.sym} 840 50 0 0 {name=X7 model=gf180mcu_fd_sc_mcu7t5v0__dffq_4}
+C {pdk_dff.sym} 840 50 0 0 {name=X7 model=gf180mcu_fd_sc_mcu7t5v0__dffq_1}
 C {pdk_delay_cell.sym} 670 180 0 0 {name=X8 model=gf180mcu_fd_sc_mcu7t5v0__dlyc_1}
-C {pdk_dff.sym} 1150 50 0 0 {name=X9 model=gf180mcu_fd_sc_mcu7t5v0__dffq_4}
+C {pdk_dff.sym} 1150 50 0 0 {name=X9 model=gf180mcu_fd_sc_mcu7t5v0__dffq_1}
 C {pdk_delay_cell.sym} 980 180 0 0 {name=X10 model=gf180mcu_fd_sc_mcu7t5v0__dlyc_1}
-C {pdk_dff.sym} 1450 50 0 0 {name=X11 model=gf180mcu_fd_sc_mcu7t5v0__dffq_4}
+C {pdk_dff.sym} 1450 50 0 0 {name=X11 model=gf180mcu_fd_sc_mcu7t5v0__dffq_1}
 C {pdk_delay_cell.sym} 1280 180 0 0 {name=X12 model=gf180mcu_fd_sc_mcu7t5v0__dlyc_1}
-C {pdk_dff.sym} 1750 50 0 0 {name=X13 model=gf180mcu_fd_sc_mcu7t5v0__dffq_4}
+C {pdk_dff.sym} 1750 50 0 0 {name=X13 model=gf180mcu_fd_sc_mcu7t5v0__dffq_1}
 C {pdk_delay_cell.sym} 1580 180 0 0 {name=X14 model=gf180mcu_fd_sc_mcu7t5v0__dlyc_1}
-C {pdk_dff.sym} 2050 50 0 0 {name=X15 model=gf180mcu_fd_sc_mcu7t5v0__dffq_4}
+C {pdk_dff.sym} 2050 50 0 0 {name=X15 model=gf180mcu_fd_sc_mcu7t5v0__dffq_1}
 C {pdk_delay_cell.sym} 1880 180 0 0 {name=X16 model=gf180mcu_fd_sc_mcu7t5v0__dlyc_1}
-C {pdk_dff.sym} 2300 50 0 0 {name=X17 model=gf180mcu_fd_sc_mcu7t5v0__dffq_4}
-C {pdk_dff.sym} 2600 50 0 0 {name=X18 model=gf180mcu_fd_sc_mcu7t5v0__dffq_4}
+C {pdk_dff.sym} 2300 50 0 0 {name=X17 model=gf180mcu_fd_sc_mcu7t5v0__dffq_1}
+C {pdk_dff.sym} 2600 50 0 0 {name=X18 model=gf180mcu_fd_sc_mcu7t5v0__dffq_1}
 C {pdk_delay_cell.sym} 2430 180 0 0 {name=X19 model=gf180mcu_fd_sc_mcu7t5v0__dlyc_1}
-C {pdk_dff.sym} 2900 50 0 0 {name=X20 model=gf180mcu_fd_sc_mcu7t5v0__dffq_4}
+C {pdk_dff.sym} 2900 50 0 0 {name=X20 model=gf180mcu_fd_sc_mcu7t5v0__dffq_1}
 C {pdk_delay_cell.sym} 2730 180 0 0 {name=X21 model=gf180mcu_fd_sc_mcu7t5v0__dlyc_1}
-C {pdk_dff.sym} 3200 50 0 0 {name=X22 model=gf180mcu_fd_sc_mcu7t5v0__dffq_4}
+C {pdk_dff.sym} 3200 50 0 0 {name=X22 model=gf180mcu_fd_sc_mcu7t5v0__dffq_1}
 C {pdk_delay_cell.sym} 3030 180 0 0 {name=X23 model=gf180mcu_fd_sc_mcu7t5v0__dlyc_1}
-C {pdk_dff.sym} 3510 50 0 0 {name=X24 model=gf180mcu_fd_sc_mcu7t5v0__dffq_4}
+C {pdk_dff.sym} 3510 50 0 0 {name=X24 model=gf180mcu_fd_sc_mcu7t5v0__dffq_1}
 C {pdk_delay_cell.sym} 3340 180 0 0 {name=X25 model=gf180mcu_fd_sc_mcu7t5v0__dlyc_1}
-C {pdk_dff.sym} 3810 50 0 0 {name=X26 model=gf180mcu_fd_sc_mcu7t5v0__dffq_4}
+C {pdk_dff.sym} 3810 50 0 0 {name=X26 model=gf180mcu_fd_sc_mcu7t5v0__dffq_1}
 C {pdk_delay_cell.sym} 3640 180 0 0 {name=X27 model=gf180mcu_fd_sc_mcu7t5v0__dlyc_1}
-C {pdk_dff.sym} 4110 50 0 0 {name=X28 model=gf180mcu_fd_sc_mcu7t5v0__dffq_4}
+C {pdk_dff.sym} 4110 50 0 0 {name=X28 model=gf180mcu_fd_sc_mcu7t5v0__dffq_1}
 C {pdk_delay_cell.sym} 3940 180 0 0 {name=X29 model=gf180mcu_fd_sc_mcu7t5v0__dlyc_1}
-C {pdk_dff.sym} 4410 50 0 0 {name=X30 model=gf180mcu_fd_sc_mcu7t5v0__dffq_4}
+C {pdk_dff.sym} 4410 50 0 0 {name=X30 model=gf180mcu_fd_sc_mcu7t5v0__dffq_1}
 C {pdk_delay_cell.sym} 4240 180 0 0 {name=X31 model=gf180mcu_fd_sc_mcu7t5v0__dlyc_1}
 C {ipin.sym} -400 -40 0 0 {name=p11 lab=VSTOP}
 C {ipin.sym} -420 140 0 0 {name=p1 lab=VSTART}
@@ -222,3 +221,4 @@ C {opin.sym} 3600 10 0 0 {name=p15 lab=D3}
 C {opin.sym} 3900 10 0 0 {name=p16 lab=D2}
 C {opin.sym} 4200 10 0 0 {name=p17 lab=D1}
 C {opin.sym} 4500 10 0 0 {name=p18 lab=D0}
+C {pdk_delay_cell.sym} 2130 180 0 0 {name=X32 model=gf180mcu_fd_sc_mcu7t5v0__dlyc_1}

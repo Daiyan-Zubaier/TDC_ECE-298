@@ -1,0 +1,35 @@
+.include /usr/local/share/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/spice/gf180mcu_fd_sc_mcu7t5v0.spice
+.subckt medium_delay_line VSTART VSTOP D0 D1 D2 D3 D4 D5 D6 D7 D8 D9 D10 D11 D12 D13 D14 D15 VDD VSS
+X1 net1 VSTOP D15 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X2 VSTART net1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyc_1
+X3 net2 VSTOP D14 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X4 net1 net2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyc_1
+X5 net3 VSTOP D13 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X6 net2 net3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyc_1
+X7 net4 VSTOP D12 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X8 net3 net4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyc_1
+X9 net5 VSTOP D11 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X10 net4 net5 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyc_1
+X11 net6 VSTOP D10 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X12 net5 net6 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyc_1
+X13 net7 VSTOP D9 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X14 net6 net7 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyc_1
+X15 net8 VSTOP D8 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X16 net7 net8 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyc_1
+X17 net9 VSTOP D7 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X18 net10 VSTOP D6 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X19 net9 net10 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyc_1
+X20 net11 VSTOP D5 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X21 net10 net11 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyc_1
+X22 net12 VSTOP D4 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X23 net11 net12 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyc_1
+X24 net13 VSTOP D3 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X25 net12 net13 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyc_1
+X26 net14 VSTOP D2 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X27 net13 net14 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyc_1
+X28 net15 VSTOP D1 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X29 net14 net15 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyc_1
+X30 net16 VSTOP D0 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dffq_1
+X31 net15 net16 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyc_1
+X32 net8 net9 VDD VDD VSS VSS gf180mcu_fd_sc_mcu7t5v0__dlyc_1
+.ends
