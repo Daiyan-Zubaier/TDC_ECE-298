@@ -18,9 +18,7 @@ C {gnd.sym} -450 50 0 0 {name=l2 lab=GND}
 C {code_shown.sym} -230 -170 0 0 {name=MODELS
 only_toplevel=true
 value="
-.include /usr/local/share/pdk/gf180mcuD/libs.tech/ngspice/design.ngspice
-.lib /usr/local/share/pdk/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
-.include /usr/local/share/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/spice/gf180mcu_fd_sc_mcu7t5v0.spice
+.include pdk_models.spice
 "}
 C {code_shown.sym} 290 -60 0 0 {name=SIM
 only_toplevel=true

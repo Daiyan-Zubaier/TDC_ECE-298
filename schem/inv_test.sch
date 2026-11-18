@@ -25,12 +25,10 @@ C {lab_pin.sym} 0 -80 0 0 {name=p3 sig_type=std_logic lab=Vin}
 C {lab_pin.sym} 70 -150 1 0 {name=p4 sig_type=std_logic lab=Vdd}
 C {lab_pin.sym} 170 -80 2 0 {name=p5 sig_type=std_logic lab=Vout}
 C {gnd.sym} 70 0 0 0 {name=l3 lab=GND}
-C {code_shown.sym} 270 -40 0 0 {name=s1 only_toplevel=false value=".include /usr/local/share/pdk/gf180mcuD/libs.tech/ngspice/design.ngspice
-.lib /usr/local/share/pdk/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
+C {code_shown.sym} 270 -40 0 0 {name=s1 only_toplevel=false value=".include pdk_models.spice
 
 .dc Vin 0 3.3 1m
 .tran .02n 10n
 .save all
-.end
 "}
 C {inv_vtc.sym} 20 60 0 0 {name=x1}

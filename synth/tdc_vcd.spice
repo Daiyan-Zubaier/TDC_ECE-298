@@ -1,0 +1,10 @@
+.subckt tdc_vcd I VCTRL Z VPWR VGND
+*.ipin I
+*.opin Z
+*.iopin VCTRL
+*.iopin VPWR
+*.iopin VGND
+X1 I net1 VCTRL VCTRL VGND VGND gf180mcu_fd_sc_mcu7t5v0__dlya_1
+X2 net1 net2 VCTRL VCTRL VGND VGND gf180mcu_fd_sc_mcu7t5v0__dlya_1
+X3 net2 Z VPWR VPWR VGND VGND gf180mcu_fd_sc_mcu7t5v0__buf_4
+.ends

@@ -36,12 +36,10 @@ C {vsource.sym} 170 -20 0 0 {name=Vds value=0 savecurrent=false}
 C {gnd.sym} -70 60 0 0 {name=l1 lab=GND}
 C {gnd.sym} 40 30 0 0 {name=l2 lab=GND}
 C {gnd.sym} 170 10 0 0 {name=l3 lab=GND}
-C {code_shown.sym} 300 0 0 0 {name=s1 only_toplevel=false value=".include /usr/local/share/pdk/gf180mcuD/libs.tech/ngspice/design.ngspice
-.lib /usr/local/share/pdk/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
+C {code_shown.sym} 300 0 0 0 {name=s1 only_toplevel=false value=".include pdk_models.spice
 
 .dc Vgs 0 3.3 1m Vds 0 3.3 .5
 .save all
-.end
 "}
 C {lab_pin.sym} -70 0 0 0 {name=p1 sig_type=std_logic lab=Vgs}
 C {lab_pin.sym} 170 -50 2 0 {name=p2 sig_type=std_logic lab=Vds}

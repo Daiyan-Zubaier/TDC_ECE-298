@@ -125,7 +125,7 @@ B 4 -950 1250 1270 2000 {fill=false}
 B 4 1320 1250 3450 2000 {fill=false}
 T {TDC / Mixed-Signal Integration Testbench} -1015 -1695 0 0 0.86 0.86 {}
 T {GF180MCU D | Xschem + ngspice | Coarse counter + tapped delay line + Vernier} -1010 -1620 0 0 0.31 0.31 {}
-T {TESTBENCH ONLY: three independent stage checks. No residue generator, endpoint capture, or final 16-bit computation yet.} -1005 -1540 0 0 0.23 0.23 {}
+T {STAGE BENCH ONLY: independent stimuli. The integrated endpoint capture and final computation are in tdc.sch / src/.} -1005 -1540 0 0 0.23 0.23 {}
 T {01 / POWER AND PULSE STIMULI} -992 -1428 0 0 0.38 0.38 {}
 T {Sources are ground-referenced; global VDD/VSS also power GF180 digital cells} -992 -1385 0 0 0.2 0.2 {}
 T {VDD} -892 -1370 0 0 0.21 0.21 {}
@@ -136,42 +136,42 @@ T {mstart} -892 -1200 0 0 0.21 0.21 {}
 T {mstop} -367 -1200 0 0 0.21 0.21 {}
 T {fstart} 158 -1200 0 0 0.21 0.21 {}
 T {fstop} 683 -1200 0 0 0.21 0.21 {}
-T {02 / COARSE: SYNTHESIZED 8-BIT COUNTER} -992 -918 0 0 0.38 0.38 {}
+T {02 / COARSE: SYNTHESIZED 4-BIT COUNTER} -992 -918 0 0 0.38 0.38 {}
 T {Continuously counts CLK edges. Output is not event-latched; this is a stage functionality test.} -992 -875 0 0 0.2 0.2 {}
-T {count[0:7]  /  raw counter bus} 30 -790 0 0 0.24 0.24 {}
+T {count[0:3]  /  raw counter bus} 30 -790 0 0 0.24 0.24 {}
 T {Note: rst_n is synchronous in the committed counter.v.} 30 -738 0 0 0.23 0.23 {}
-T {At 50 MHz, the nominal 8-bit wrap interval is 5.12 us.} 30 -690 0 0 0.23 0.23 {}
+T {At 50 MHz, the nominal 4-bit wrap interval is 320 ns.} 30 -690 0 0 0.23 0.23 {}
 T {03 / MEDIUM: 16-TAP DELAY-LINE SNAPSHOT} -992 -483 0 0 0.38 0.38 {}
 T {Propagation order: D15 is the earliest physical tap and maps to encoder therm_0.} -992 -440 0 0 0.2 0.2 {}
 T {D15..D0  ->  therm_0..therm_15} -205 -380 0 0 0.2 0.2 {}
 T {16 physical taps feed the bus-labeled encoder.} -205 -345 0 0 0.2 0.2 {}
 T {The 4-bit code wraps at 16; check m_overflow.} -205 -310 0 0 0.2 0.2 {}
 T {Independent edges: mstart @ 5 ns; mstop @ 12 ns.} -205 140 0 0 0.22 0.22 {}
-T {04 / FINE: 9-TAP VERNIER / EXPERIMENTAL ENCODER} -992 352 0 0 0.38 0.38 {}
+T {04 / FINE: 9-TAP VERNIER / SYNTHESIZED ENCODER} -992 352 0 0 0.38 0.38 {}
 T {Standalone test: fstart/fstop are direct 400-ps-separated stimuli, not generated medium residue.} -992 395 0 0 0.2 0.2 {}
 T {D8 is the earliest comparison tap: therm_0.} -200 400 0 0 0.2 0.2 {}
-T {The remaining seven therm inputs are tied low.} -200 430 0 0 0.2 0.2 {}
-T {Important: f_overflow stays 0 in the current RTL.} -200 800 0 0 0.22 0.22 {}
-T {No catch-up detection needs dedicated fine-stage RTL.} -200 835 0 0 0.22 0.22 {}
+T {Nine taps connect directly to the dedicated fine encoder.} -200 430 0 0 0.2 0.2 {}
+T {Important: f_overflow flags no catch-up (all nine taps zero).} -200 800 0 0 0.22 0.22 {}
+T {The nine-input fine encoder is synthesized from src/fine_encoder.v.} -200 835 0 0 0.22 0.22 {}
 T {05 / IN-SCHEMATIC WAVEFORMS} 1418 -1428 0 0 0.38 0.38 {}
-T {After running, load TDC.raw (Waves -> Tran) to populate these saved graphs.} 1418 -1385 0 0 0.2 0.2 {}
+T {After running, load tdc_stages.raw (Waves -> Tran) to populate these saved graphs.} 1418 -1385 0 0 0.2 0.2 {}
 T {Input edges  |  mstop - mstart = 7 ns   /   fstop - fstart = 0.4 ns (ideal)} 1455 -1350 0 0 0.25 0.25 {}
 T {Medium progression  |  representative tap voltages} 1455 -870 0 0 0.25 0.25 {}
 T {Vernier captures  |  START/STOP + all nine taps, zoomed 4-12 ns} 1455 -405 0 0 0.25 0.25 {}
 T {Encoded outputs + flags  |  digital view (edit signal list to add other buses)} 1455 40 0 0 0.25 0.25 {}
 T {Flat output bits after capture are expected: these taps are latched DFF values.} 1465 563 0 0 0.2 0.2 {}
-T {Check the before/after fine tap measurements in TDC_measurements.txt.} 1465 593 0 0 0.2 0.2 {}
-T {WARNING: Existing fine encoder bubble detection may use the opposite thermometer polarity.} 1465 760 0 0 0.2 0.2 {}
+T {Check the before/after fine tap measurements in stage_measurements.txt.} 1465 593 0 0 0.2 0.2 {}
+T {Fine polarity: zeros followed by ones in D8-to-D0 propagation order; reverse transitions flag bubbles.} 1465 760 0 0 0.2 0.2 {}
 T {Next: sweep VFSTOP rise from 5.2 to 5.8 ns and compare all nine final tap bits.} 1465 803 0 0 0.2 0.2 {}
 T {Xschem: select graph -> Alt-G on schematic signal; A/B keys: time cursors.} 1465 620 0 0 0.24 0.24 {}
 T {Waveforms update when the latest raw data file is reloaded.} 1465 662 0 0 0.23 0.23 {}
-T {Spice .meas numbers are written to TDC_measurements.txt and simulation console.} 1465 720 0 0 0.23 0.23 {}
+T {Spice .meas numbers are written to stage_measurements.txt and simulation console.} 1465 720 0 0 0.23 0.23 {}
 T {06 / SIMULATION SETUP, MODEL INCLUDES AND READOUT} -992 1142 0 0 0.38 0.38 {}
-T {Requires schem/xschemrc: set local_netlist_dir 1  (simulations saved to schem/simulation/)} -992 1185 0 0 0.2 0.2 {}
+T {Use schem/xschemrc; project netlists and simulations are saved to build/sim/.} -992 1185 0 0 0.2 0.2 {}
 T {MODELS: PDK + synthesized GF180 subcircuits} -920 1275 0 0 0.3 0.3 {}
 T {SIM: transient, measurements, waveforms, and tabular export} 1350 1275 0 0 0.29 0.29 {}
-T {OUTPUT: TDC.raw  /  TDC_trace.txt  /  TDC_measurements.txt} -915 2075 0 0 0.3 0.3 {}
-T {Not yet implemented: endpoint latches, medium-to-fine residue transfer, Gray/safe capture, 16-bit timing arithmetic.} -915 2132 0 0 0.22 0.22 {}
+T {OUTPUT: tdc_stages.raw  /  stage_trace.txt  /  stage_measurements.txt} -915 2075 0 0 0.3 0.3 {}
+T {This bench excludes the system endpoint latches, parallel fine banks, timestamp subtraction and readout. Open tdc.sch for the system.} -915 2132 0 0 0.22 0.22 {}
 T {Treat all plots as individual stage responses; nominal timing fields are NOT a calibrated interval measurement.} -915 2168 0 0 0.22 0.22 {}
 N -850 -1339 -850 -1305 {
 lab=VDD}
@@ -194,7 +194,7 @@ lab=clk}
 N -720 -730 -637 -730 {
 lab=rst_n}
 N -483 -615 -345 -615 {bus=true
-lab=count[0:7]}
+lab=count[0:3]}
 N -745 -260 -675 -260 {
 lab=mstop}
 N -745 -240 -675 -240 {
@@ -293,17 +293,14 @@ C {fine_encoder.sym} 825 625 0 0 {name=XFINEENC}
 C {code_shown.sym} -895 1390 0 0 {name=MODELS only_toplevel=true value="* Hierarchical supplies shared with standard cells
 .global VDD VSS
 * PDK path matches existing delay-line testbenches
-.include /usr/local/share/pdk/gf180mcuD/libs.tech/ngspice/design.ngspice
-.lib /usr/local/share/pdk/gf180mcuD/libs.tech/ngspice/sm141064.ngspice typical
-.include /usr/local/share/pdk/gf180mcuD/libs.ref/gf180mcu_fd_sc_mcu7t5v0/spice/gf180mcu_fd_sc_mcu7t5v0.spice
+.include pdk_models.spice
 * These paths are relative to schem/simulation/
-.include /home/dmzubaie/Documents/TDC_ECE-298/synth/counter.spice
-.include /home/dmzubaie/Documents/TDC_ECE-298/synth/therm_encoder.spice"}
+.include digital_models.spice"}
 C {code_shown.sym} 1370 1390 0 0 {name=SIM only_toplevel=true value="* First-pass functional transient; reduce maxstep for fine characterization.
 .temp 25
 .tran 5p 40n 0 5p
 .save v(clk) v(rst_n) v(mstart) v(mstop) v(fstart) v(fstop) v(VDD) v(VSS) v(count[0])
-.save v(count[1]) v(count[2]) v(count[3]) v(count[4]) v(count[5]) v(count[6]) v(count[7]) v(md[0]) v(md[1])
+.save v(count[1]) v(count[2]) v(count[3]) v(md[0]) v(md[1])
 .save v(md[2]) v(md[3]) v(md[4]) v(md[5]) v(md[6]) v(md[7]) v(md[8]) v(md[9]) v(md[10])
 .save v(md[11]) v(md[12]) v(md[13]) v(md[14]) v(md[15]) v(fd[0]) v(fd[1]) v(fd[2]) v(fd[3])
 .save v(fd[4]) v(fd[5]) v(fd[6]) v(fd[7]) v(fd[8]) v(mcode[0]) v(mcode[1]) v(mcode[2]) v(mcode[3])
@@ -311,7 +308,7 @@ C {code_shown.sym} 1370 1390 0 0 {name=SIM only_toplevel=true value="* First-pas
 .control
 run
 * ngspice raw file is read by embedded Xschem graphs
-write tdc.raw
+write tdc_stages.raw
 meas tran medium_interval TRIG v(mstart) VAL=1.65 RISE=1 TARG v(mstop) VAL=1.65 RISE=1
 meas tran fine_interval TRIG v(fstart) VAL=1.65 RISE=1 TARG v(fstop) VAL=1.65 RISE=1
 meas tran clk_period TRIG v(clk) VAL=1.65 RISE=1 TARG v(clk) VAL=1.65 RISE=2
@@ -347,21 +344,38 @@ meas tran f_bubble_at_20n FIND v(f_bubble) AT=20n
 meas tran f_overflow_at_20n FIND v(f_overflow) AT=20n
 meas tran m_bubble_at_20n FIND v(m_bubble) AT=20n
 meas tran m_overflow_at_20n FIND v(m_overflow) AT=20n
-echo STAGE INTEGRATION TEST / not a calibrated TDC result > TDC_measurements.txt
-print medium_interval fine_interval clk_period >> TDC_measurements.txt
-print medium_code0_at_20n fine_code0_at_20n >> TDC_measurements.txt
-echo --- Fine taps BEFORE launch at 4 ns (V) --- >> TDC_measurements.txt
-print fd8_pre_4n fd7_pre_4n fd6_pre_4n fd5_pre_4n fd4_pre_4n fd3_pre_4n fd2_pre_4n fd1_pre_4n fd0_pre_4n >> TDC_measurements.txt
-echo --- Fine taps AFTER settling at 20 ns (V) --- >> TDC_measurements.txt
-print fd8_post_20n fd7_post_20n fd6_post_20n fd5_post_20n fd4_post_20n fd3_post_20n fd2_post_20n fd1_post_20n fd0_post_20n >> TDC_measurements.txt
-echo --- Encoder output bits at 20 ns, HIGH if above 1.65 V --- >> TDC_measurements.txt
-print fine_code0_at_20n fine_code1_at_20n fine_code2_at_20n fine_code3_at_20n >> TDC_measurements.txt
-print medium_code0_at_20n medium_code1_at_20n medium_code2_at_20n medium_code3_at_20n >> TDC_measurements.txt
-echo --- Status flags at 20 ns --- >> TDC_measurements.txt
-print f_bubble_at_20n f_overflow_at_20n m_bubble_at_20n m_overflow_at_20n >> TDC_measurements.txt
+meas tran fd8_at_30n FIND v(fd[8]) AT=30n
+meas tran fd7_at_30n FIND v(fd[7]) AT=30n
+meas tran fd6_at_30n FIND v(fd[6]) AT=30n
+meas tran fd5_at_30n FIND v(fd[5]) AT=30n
+meas tran fd4_at_30n FIND v(fd[4]) AT=30n
+meas tran fd3_at_30n FIND v(fd[3]) AT=30n
+meas tran fd2_at_30n FIND v(fd[2]) AT=30n
+meas tran fd1_at_30n FIND v(fd[1]) AT=30n
+meas tran fd0_at_30n FIND v(fd[0]) AT=30n
+meas tran fcode0_at_30n FIND v(fcode[0]) AT=30n
+meas tran fcode1_at_30n FIND v(fcode[1]) AT=30n
+meas tran fcode2_at_30n FIND v(fcode[2]) AT=30n
+meas tran fcode3_at_30n FIND v(fcode[3]) AT=30n
+echo STAGE INTEGRATION TEST / not a calibrated TDC result > stage_measurements.txt
+print medium_interval fine_interval clk_period >> stage_measurements.txt
+print medium_code0_at_20n fine_code0_at_20n >> stage_measurements.txt
+echo --- Fine taps BEFORE launch at 4 ns (V) --- >> stage_measurements.txt
+print fd8_pre_4n fd7_pre_4n fd6_pre_4n fd5_pre_4n fd4_pre_4n fd3_pre_4n fd2_pre_4n fd1_pre_4n fd0_pre_4n >> stage_measurements.txt
+echo --- Fine taps AFTER settling at 20 ns (V) --- >> stage_measurements.txt
+print fd8_post_20n fd7_post_20n fd6_post_20n fd5_post_20n fd4_post_20n fd3_post_20n fd2_post_20n fd1_post_20n fd0_post_20n >> stage_measurements.txt
+echo --- Encoder output bits at 20 ns, HIGH if above 1.65 V --- >> stage_measurements.txt
+print fine_code0_at_20n fine_code1_at_20n fine_code2_at_20n fine_code3_at_20n >> stage_measurements.txt
+print medium_code0_at_20n medium_code1_at_20n medium_code2_at_20n medium_code3_at_20n >> stage_measurements.txt
+echo --- Status flags at 20 ns --- >> stage_measurements.txt
+print f_bubble_at_20n f_overflow_at_20n m_bubble_at_20n m_overflow_at_20n >> stage_measurements.txt
+echo --- Fine taps at 30 ns --- >> stage_measurements.txt
+print fd8_at_30n fd7_at_30n fd6_at_30n fd5_at_30n fd4_at_30n fd3_at_30n fd2_at_30n fd1_at_30n fd0_at_30n >> stage_measurements.txt
+echo --- Fine code bits at 30 ns --- >> stage_measurements.txt
+print fcode0_at_30n fcode1_at_30n fcode2_at_30n fcode3_at_30n >> stage_measurements.txt
 set wr_singlescale
 set wr_vecnames
-wrdata TDC_trace.txt v(mstart) v(mstop) v(fstart) v(fstop)
+wrdata stage_trace.txt v(mstart) v(mstop) v(fstart) v(fstop)
 .endc"}
 C {lab_pin.sym} -850 -1339 0 0 {name=NL001 sig_type=std_logic lab=VDD}
 C {lab_pin.sym} -325 -1339 0 0 {name=NL002 sig_type=std_logic lab=VSS}
@@ -373,7 +387,7 @@ C {lab_pin.sym} 200 -1169 0 0 {name=NL007 sig_type=std_logic lab=fstart}
 C {lab_pin.sym} 725 -1169 0 0 {name=NL008 sig_type=std_logic lab=fstop}
 C {lab_pin.sym} -720 -700 0 0 {name=NL009 sig_type=std_logic lab=clk}
 C {lab_pin.sym} -720 -730 0 0 {name=NL010 sig_type=std_logic lab=rst_n}
-C {lab_pin.sym} -483 -615 0 0 {name=NL011 sig_type=std_logic lab=count[0:7]}
+C {lab_pin.sym} -483 -615 0 0 {name=NL011 sig_type=std_logic lab=count[0:3]}
 C {lab_pin.sym} -745 -260 0 0 {name=NL012 sig_type=std_logic lab=mstop}
 C {lab_pin.sym} -745 -240 0 0 {name=NL013 sig_type=std_logic lab=mstart}
 C {lab_pin.sym} -375 -260 0 0 {name=NL014 sig_type=std_logic lab=md[15]}
@@ -411,3 +425,4 @@ C {lab_pin.sym} 540 605 0 0 {name=NL045 sig_type=std_logic lab=fd[8:0]}
 C {lab_pin.sym} 923 605 0 0 {name=NL046 sig_type=std_logic lab=fcode[0:3]}
 C {lab_pin.sym} 923 630 0 0 {name=NL047 sig_type=std_logic lab=f_overflow}
 C {lab_pin.sym} 923 655 0 0 {name=NL048 sig_type=std_logic lab=f_bubble}
+C {lab_pin.sym} -525 515 0 0 {name=LFINEPOWER lab=VDD}

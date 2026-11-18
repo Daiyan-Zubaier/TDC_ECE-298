@@ -147,3 +147,4 @@ C {opin.sym} 1000 -40 0 0 {name=p8 lab=D5}
 C {opin.sym} 610 -40 0 0 {name=p9 lab=D6}
 C {opin.sym} 210 -40 0 0 {name=p10 lab=D7}
 C {opin.sym} -190 -40 0 0 {name=p11 lab=D8}
+C {iopin.sym} 3000 -220 0 0 {name=p_vdd lab=VDD}

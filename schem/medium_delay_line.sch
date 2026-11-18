@@ -171,8 +171,9 @@ N 4320 -40 4320 10 {
 lab=VSTOP}
 N 1960 -40 2210 -40 {
 lab=VSTOP}
-N 1930 140 2150 140 {
+N 1930 140 1980 140 {
 lab=#net8}
+C {pdk_delay_cell.sym} 2130 180 0 0 {name=X32 model=gf180mcu_fd_sc_mcu7t5v0__dlyc_1}
 C {pdk_dff.sym} -60 50 0 0 {name=X1 model=gf180mcu_fd_sc_mcu7t5v0__dffq_4}
 C {pdk_delay_cell.sym} -230 180 0 0 {name=X2 model=gf180mcu_fd_sc_mcu7t5v0__dlyc_1}
 C {pdk_dff.sym} 240 50 0 0 {name=X3 model=gf180mcu_fd_sc_mcu7t5v0__dffq_4}

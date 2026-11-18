@@ -13,7 +13,18 @@
 
   "//": "PL_TARGET_DENSITY_PCT - You can increase this if Global Placement fails with error GPL-0302.",
   "//": "Users have reported that values up to 80 worked well for them.",
-  "PL_TARGET_DENSITY_PCT": 60,
+  "PL_TARGET_DENSITY_PCT": 55,
+
+  "//": "TDC-specific settings: rationale and validation are in docs/configuration.md.",
+  "//": "Timing cells measure propagation delay; keep their hierarchy and prevent resizing/replacement.",
+  "SYNTH_HIERARCHY_MODE": "keep",
+  "EXTRA_EXCLUDED_CELLS": ["gf180mcu_fd_sc_mcu7t5v0__dly*"],
+  "RSZ_DONT_TOUCH_RX": ".*(stop_endpoint|demo_vernier|stimulus).*|^(start_launched_raw|stop_captured_raw|stop_launched|boundary_start|boundary_stop|boundary_demo|boundary_demo_launch|demo_launch|demo_delayed|ua\\[0\\])$",
+  "//": "Only the reference clock uses CTS; held measurements need separate audit constraints.",
+  "PNR_SDC_FILE": "dir::tdc_pnr.sdc",
+  "SIGNOFF_SDC_FILE": "dir::tdc.sdc",
+  "//": "Request 0.2 ns setup repair margin at placement; this does not alter the 20 ns clock.",
+  "PL_RESIZER_SETUP_SLACK_MARGIN": 0.2,
 
   "//": "CLOCK_PERIOD - Increase this in case you are getting setup time violations.",
   "//": "The value is in nanoseconds, so 20ns == 50MHz.",
