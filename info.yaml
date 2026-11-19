@@ -9,6 +9,8 @@ project:
 
   # How many tiles your design occupies? A single tile is about 340x160 uM.
   tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 3x4 or 4x4
+  analog_pins: 1
+  uses_vapwr: false
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
   top_module:  "tt_um_example"
@@ -51,6 +53,14 @@ pinout:
   uio[5]: ""
   uio[6]: ""
   uio[7]: ""
+
+  # Analog pins: only ua[0] is requested
+  ua[0]: "analog_in"
+  ua[1]: ""
+  ua[2]: ""
+  ua[3]: ""
+  ua[4]: ""
+  ua[5]: ""
 
 # Do not change!
 yaml_version: 6
